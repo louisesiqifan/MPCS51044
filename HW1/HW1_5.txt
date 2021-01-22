@@ -1,5 +1,0 @@
-Why is C++ called C++ and not ++C?
-
-In C, `++ var` increments the value of `var` before processing the statement, whereas `var ++` increments the value after the statement.
-
-C was introduced before C++, and C++ is a language built upon C rather than changing C itself. Therefore we use post increment rather than prefix increment. 
