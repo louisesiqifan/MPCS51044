@@ -31,5 +31,9 @@ int main () {
     double d2 = sqrt(inner_product(v.begin(), v.end(), v.begin(), 0.0));
     cout << d2 << "\n";
 
+    cout << "Distance to origin by 4 argument accumulate: ";
+    double d3 = sqrt(accumulate(v.begin(), v.end(), 0.0, [](double x, double y) {return x + y*y;}));
+    cout << d3 << "\n";
+
     return 0;
 }
