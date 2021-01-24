@@ -27,5 +27,9 @@ int main () {
     double d = sqrt(accumulate(w.begin(), w.end(), 0.0));
     cout << d << "\n";
 
+    cout << "Distance to origin by inner product: ";
+    double d2 = sqrt(inner_product(v.begin(), v.end(), v.begin(), 0.0));
+    cout << d2 << "\n";
+
     return 0;
 }
