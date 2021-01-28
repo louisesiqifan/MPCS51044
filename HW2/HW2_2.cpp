@@ -14,8 +14,13 @@ double median_from_sort (vector<double> v) {
 }
 
 double median_from_partial_sort (vector<double> v) {
+    /*
+    Partial Sort is more effective than sort because it only needs to find
+    the smallest half of the numbers in our vector and does not need
+    to sort the other half.
+    */
     int n = v.size();
-    partial_sort(v.begin(), v.end(), v.end());
+    partial_sort(v.begin(), v.begin() + n/2 + 1, v.end());
     if (n%2 == 0) {
         return (v[n/2-1] + v[n/2])/2;
     }
@@ -23,6 +28,11 @@ double median_from_partial_sort (vector<double> v) {
 }
 
 double median_from_nth_element(vector<double> v) {
+    /*
+    Nth element is even more effective because it only needs to find the
+    nth element, and doesn't have to sort the other numbers to their correct
+    positions.
+    */
     int n = v.size();
     if (n%2 == 0) {
         nth_element(v.begin(), v.begin() + n/2 - 1, v.end());
