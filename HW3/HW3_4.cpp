@@ -44,18 +44,18 @@ class Game {
             while (!end) {
                 end = next();
             }
-            cout << "Game ended, press 1 to restart, press 2 to clear saved questions and press 0 to exit.\n";
+            cout << "Game ended, enter 1 to restart, 2 to clear saved questions and 0 to exit.\n";
             while (loop) {
                 cin >> restart;
-                if (cin == 1) {
+                if (restart == 1) {
                     i = 0;
                     run();
                 }
-                else if (cin == 2) {
+                else if (restart == 2) {
                     clear_class();
                     run();
                 }
-                else if (cin == 3) {
+                else if (restart == 0) {
                     return;
                 }
                 else {
@@ -88,8 +88,8 @@ class Game {
                     cout << "Answer not valid, please enter Y or N.\n";
                 }
             }
-            if all_of(ans.begin(), ans.end(), is_digit) {
-                i = atoi(ans);
+            if (ans.find_first_not_of( "0123456789" ) == string::npos) {
+                i = stoi(ans);
                 return false;
             }
             loop = true;
@@ -98,19 +98,19 @@ class Game {
             while (loop) {
                 cin >> k;
                 if (k=='Y') {
-                    cout << "Hooray!\n"
+                    cout << "Hooray!\n";
                     return true;
                 }
-                else if (r=='N') {
-                    cout << "You win!\n";
+                else if (k=='N') {
+                    cout << "You win! ";
                     add_question(ans);
                     if (mode == 'l') {
-                        que.update_left(n);
+                        qs[i].update_left(n);
                     }
                     else {
-                        que.update_right(n);
+                        qs[i].update_right(n);
                     }
-                    return false;
+                    return true;
                 }
                 else {
                     cout << "Answer not valid, please enter Y or N.\n";
@@ -122,13 +122,14 @@ class Game {
         void add_question(string wrong_ans) {
             string right_ans;
             string question;
-            Question new_question;
             bool loop = true;
             cout << "What is the animal you were thinking about?\n";
             while (loop) {
                 getline(cin, right_ans);
-                if all_of(right_ans.begin(), right_ans.end(), is_digit) {
-                    cout << "Please enter a valid animal name\n";
+                if (right_ans.find_first_not_of( "0123456789" ) == string::npos) {
+                    if (right_ans != "") {
+                        cout << "Please enter a valid animal name\n";
+                    }
                 }
                 else {
                     loop = false;
@@ -138,7 +139,7 @@ class Game {
             cout << wrong_ans << " from " << right_ans;
             cout << "(Y for " << wrong_ans << " and N for " << right_ans << ")\n";
             getline(cin, question);
-            new_question = Question(question, wrong_ans, right_ans);
+            Question new_question = Question(question, wrong_ans, right_ans);
             qs.push_back(new_question);
             n ++;
             return;
@@ -150,7 +151,7 @@ class Game {
             n = 1;
             i = 0;
         }
-}
+};
 
 int main() {
     Game g = Game();
