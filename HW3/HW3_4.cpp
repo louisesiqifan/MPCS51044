@@ -65,6 +65,8 @@ class Game {
             return;
         }
 
+    private:
+
         bool next() {
             char r;
             char mode;
