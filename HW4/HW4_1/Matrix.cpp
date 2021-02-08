@@ -13,5 +13,8 @@ int main()
 	};
 	Matrix<3, 3> result = m + m;
 	cout << result;
+
+	m += result;
+	cout << m;
 	return 0;
 }

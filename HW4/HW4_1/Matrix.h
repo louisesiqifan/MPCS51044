@@ -88,6 +88,15 @@ public:
 		return val;
 	}
 
+	Matrix<rows, cols>& operator+= (const Matrix<rows, cols> &rhs) {
+		for (int i=0; i<rows; i++) {
+			for (int j=0; j<cols; j++){
+				data[i][j] += rhs(i, j);
+			}
+		}
+		return *this;
+	}
+
 private:
 	static size_t accumulateMax(size_t acc, double d) {
 		ostringstream ostr;
