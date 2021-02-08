@@ -1,2 +1,0 @@
-Operator+= is better as a member function.
-Unlike Operator+, where 2 arguments are generally commutative and returns a new object, Operator+= changes the left hand argument directly and returns the changed left hand argument. In this case, the left hand argument must be a member of the class for the overloaded operator to work.
