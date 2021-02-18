@@ -2,6 +2,7 @@
 !*.*
 !*/
 !Makefile
+*/lec_?_files/*
 
 # Prerequisites
 *.d
