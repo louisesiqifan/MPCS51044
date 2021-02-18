@@ -1,9 +1,0 @@
-Time:
-                Old                 New
-Matrix          54.2056 seconds     36.8372 seconds
-OverloadMatrix  60.8049 seconds     42.4099 seconds
-PSMatrix        56.7612 seconds     36.0402 seconds
-
-
-Conclusion:
-After we added direct implementations of determinant for 2x2 matrices, all three different implementations become faster. This could be because when we calculate determinants for matrices that are larger than 2x2, we require less recursive calls.
