@@ -1,12 +1,5 @@
 #ifndef STACK_H
 #  define STACK_H
-// Implement a distributed counter with a thread local count in
-// conformance with cache-conscious programming best practices in
-// the lecture.
-//
-// Most of the complexity here is in managing the thread local counts
-// as threads are created or destroyed. Study how we use various
-// multithreading techniques to accurately and safely track these.
 
 #include<mutex>
 #include<shared_mutex>
