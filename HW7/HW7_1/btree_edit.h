@@ -19,6 +19,12 @@ class btree
 		btree() {
 			root = nullptr;
 		}
+        btree(btree &&old_tree) {
+            if (this == &old_tree) {
+                return;
+            }
+            root = move(old_tree.root);
+        }
 		~btree() {
 			destroy_tree();
 		}
