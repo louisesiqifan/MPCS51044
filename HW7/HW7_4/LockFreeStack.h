@@ -65,9 +65,9 @@ Stack::push(int val)
     StackHead newHead;
     bool succeeded = false;
     StackItem* newItem = new StackItem(val);
-    newItem -> next = localHead.link;
     while(!succeeded) {
         newHead.link = newItem;
+        newItem -> next = localHead.link;
         newHead.count = localHead.count + 1;
         succeeded = head.compare_exchange_weak(localHead, newHead);
     }
